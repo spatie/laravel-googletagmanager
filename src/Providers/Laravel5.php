@@ -18,7 +18,11 @@ class Laravel5 extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('googletagmanager.php'),
-        ]);
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../views' => base_path('resources/views/vendor/googletagmanager'),
+        ], 'views');
 
         $this->app['view']->creator(
             ['googletagmanager::script', 'googletagmanager::push'],
