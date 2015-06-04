@@ -14,14 +14,14 @@ class Laravel5 extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../views', 'googletagmanager');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'googletagmanager');
 
         $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('googletagmanager.php'),
+            __DIR__.'/../resources/config/config.php' => config_path('googletagmanager.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/../views' => base_path('resources/views/vendor/googletagmanager'),
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/googletagmanager'),
         ], 'views');
 
         $this->app['view']->creator(
@@ -37,7 +37,7 @@ class Laravel5 extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'googletagmanager');
+        $this->mergeConfigFrom(__DIR__.'/../resources/config/config.php', 'googletagmanager');
 
         $googleTagManager = new GoogleTagManager(config('googletagmanager.id'));
 
