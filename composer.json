@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "League\\Skeleton\\": "src"
+            "Spatie\\GoogleTagManager\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "League\\Skeleton\\Test\\": "tests"
+            "Spatie\\GoogleTagManager\\Test\\": "tests"
         }
     },
     "scripts": {
