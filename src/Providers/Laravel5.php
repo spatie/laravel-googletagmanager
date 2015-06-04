@@ -3,6 +3,7 @@
 namespace Spatie\GoogleTagManager\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Spatie\GoogleTagManager\GoogleTagManager;
 
 class Laravel5 extends ServiceProvider
 {
@@ -13,10 +14,10 @@ class Laravel5 extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/views', 'googletagmanager');
+        $this->loadViewsFrom(__DIR__.'/../views', 'googletagmanager');
 
         $this->publishes([
-            __DIR__.'/config/googletagmanager.php' => config_path('googletagmanager.php'),
+            __DIR__.'/../config/config.php' => config_path('googletagmanager.php'),
         ]);
 
         $this->app['view']->creator(
@@ -32,11 +33,11 @@ class Laravel5 extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/googletagmanager.php', 'googletagmanager');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'googletagmanager');
 
-        $googleTagManager = new GoogleTagManager(Config::get('googletagmanager.id'));
+        $googleTagManager = new GoogleTagManager(config('googletagmanager.id'));
 
-        if (Config::get('googletagmanager.enabled') === false) {
+        if (config('googletagmanager.enabled') === false) {
             $googleTagManager->disable();
         }
 
