@@ -1,9 +1,9 @@
 @if($enabled)
 <script>
 @if (isset($dataLayer) && $dataLayer instanceof Spatie\GoogleTagManager\DataLayer)
-    dataLayer.push({!! $dataLayer->toJson() !!});
+    dataLayer.push(<?php $dataLayer->toJson(); ?>);
 @else
-    dataLayer.push({!! GoogleTagManager::dump() !!});
+    dataLayer.push(<?php GoogleTagManager::dump(); ?>);
 @endif
 </script>
 @endif

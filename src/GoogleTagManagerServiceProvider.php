@@ -3,10 +3,30 @@
 namespace Spatie\GoogleTagManager;
 
 use Config;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\ServiceProvider;
+use Spatie\GoogleTagManager\Providers\Laravel4;
+use Spatie\GoogleTagManager\Providers\Laravel5;
 
-class GoogleTagManagerServiceProvider extends ServiceProvider {
+class GoogleTagManagerServiceProvider extends ServiceProvider
+{
+    /**
+     * @var \Illuminate\Support\ServiceProvider;
+     */
+    protected $provider;
+
+    public function __construct($app)
+    {
+        parent::__construct($app);
+
+        $version = intval(Application::VERSION);
+
+        if ($version === 4) {
+            $this->provider = new Laravel4($app);
+        } else {
+            $this->provider = new Laravel5($app);
+        }
+    }
 
     /**
      * Bootstrap the application services.
@@ -15,15 +35,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        if ($this->version === 4) {
-            $this->package('spatie/googletagmanager', null, __DIR__);
-        } else {
-            $this->loadViewsFrom(__DIR__.'/views', 'googletagmanager');
-
-            $this->publishes([
-                __DIR__.'/config/googletagmanager.php' => config_path('googletagmanager.php'),
-            ]);
-        }
+        $this->provider->boot();
     }
 
     /**
@@ -33,30 +45,6 @@ class GoogleTagManagerServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->version = intval(Application::VERSION);
-
-        if ($this->version === 4) {
-            $id = Config::get('googletagmanager::id');
-            $enabled = Config::get('googletagmanager::enabled');
-        } else {
-            $this->mergeConfigFrom(__DIR__.'/config/googletagmanager.php', 'googletagmanager');
-
-            $id = Config::get('googletagmanager.id');
-            $enabled = Config::get('googletagmanager.enabled');
-        }
-
-        $googleTagManager = new GoogleTagManager($id);
-
-        if ($enabled === false) {
-            $googleTagManager->disable();
-        }
-
-        $this->app->instance('Spatie\GoogleTagManager\GoogleTagManager', $googleTagManager);
-        $this->app->alias('Spatie\GoogleTagManager\GoogleTagManager', 'googletagmanager');
-
-        $this->app['view']->creator(
-            ['googletagmanager::script', 'googletagmanager::push'],
-            'Spatie\GoogleTagManager\ScriptViewCreator'
-        );
+        $this->provider->register();
     }
 }

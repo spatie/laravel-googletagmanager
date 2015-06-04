@@ -3,7 +3,7 @@
 return [
 
     // The Google Tag Manager id
-    'id' => 'bla',
+    'id' => 'gtm-spatie',
     
     // Enable or disable script rendering. This is useful for local development.
     'enabled' => true,

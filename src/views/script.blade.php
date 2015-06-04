@@ -1,9 +1,9 @@
 @if($enabled)
 <script>
 @if (isset($dataLayer) && $dataLayer instanceof Spatie\GoogleTagManager\DataLayer)
-    dataLayer = [{!! $dataLayer->toJson() !!}];
+    dataLayer = [<?php echo $dataLayer->toJson(); ?>];
 @else
-    dataLayer = [{!! GoogleTagManager::dump() !!}];
+    dataLayer = [<?php echo GoogleTagManager::dump(); ?>];
 @endif
 </script>
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id={{ GoogleTagManager::id() }}"
