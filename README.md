@@ -2,14 +2,10 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/thephpspatie/laravel-googletagmanager/master.svg?style=flat-square)](https://travis-ci.org/thephpspatie/laravel-googletagmanager)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpspatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpspatie/laravel-googletagmanager/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/thephpspatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpspatie/laravel-googletagmanager)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+Easy Google Tag Manager implementation in your laravel application. Supports laravel 4 & 5.
 
 ## Install
 
@@ -19,22 +15,54 @@ Via Composer
 $ composer require spatie/laravel-googletagmanager
 ```
 
-## Usage
+Register the service provider and facade
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+// config/app.php (L5) or app/config/app.php (L4)
+
+'providers' => [
+  ...
+  'Spatie\GoogleTagManager\GoogleTagManagerServiceProvider',
+],
+
+'aliases' => [
+  ...
+  'GoogleTagManager' => 'Spatie\GoogleTagManager\GoogleTagManagerFacade',
+],
+
 ```
 
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
+Publish the config files
 
 ``` bash
-$ composer test
+// L5
+$ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="config"
+
+// L4
+$ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources"
 ```
+
+Optionally publish the view files (it's recommended not to do this if you don't need to edit them for easier package updates)
+
+``` bash
+// L5
+$ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
+
+// L4
+$ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources"
+```
+
+## Setup
+
+...
+
+## Usage
+
+...
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Contributing
 
