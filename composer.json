@@ -10,8 +10,8 @@
     "authors": [
         {
             "name": "Sebastian De Deyne",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "email": "sebastian@spatie.be",
+            "homepage": "https://spatie.be",
             "role": "Developer"
         }
     ],
