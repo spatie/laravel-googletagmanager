@@ -16,12 +16,12 @@ class GoogleTagManagerServiceProvider extends ServiceProvider {
     public function boot()
     {
         if ($this->version === 4) {
-
+            $this->package('spatie/googletagmanager', null, __DIR__);
         } else {
-            $this->loadViewsFrom(__DIR__.'/../views', 'googletagmanager');
+            $this->loadViewsFrom(__DIR__.'/views', 'googletagmanager');
 
             $this->publishes([
-                __DIR__.'/../config/googletagmanager.php' => config_path('googletagmanager.php'),
+                __DIR__.'/config/googletagmanager.php' => config_path('googletagmanager.php'),
             ]);
         }
     }
@@ -36,12 +36,10 @@ class GoogleTagManagerServiceProvider extends ServiceProvider {
         $this->version = intval(Application::VERSION);
 
         if ($this->version === 4) {
-            $this->package('spatie/googletagmanager', null, __DIR__.'/..');
-
             $id = Config::get('googletagmanager::id');
             $enabled = Config::get('googletagmanager::enabled');
         } else {
-            $this->mergeConfigFrom(__DIR__.'/../config/googletagmanager.php', 'googletagmanager');
+            $this->mergeConfigFrom(__DIR__.'/config/googletagmanager.php', 'googletagmanager');
 
             $id = Config::get('googletagmanager.id');
             $enabled = Config::get('googletagmanager.enabled');

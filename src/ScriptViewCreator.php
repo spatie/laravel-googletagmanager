@@ -2,7 +2,7 @@
 
 namespace Spatie\GoogleTagManager;
 
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Spatie\GoogleTagManager\Exceptions\ApiKeyNotSetException;
 
 class ScriptViewCreator
