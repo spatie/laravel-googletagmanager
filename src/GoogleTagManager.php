@@ -84,16 +84,22 @@ class GoogleTagManager
     }
 
     /**
-     * Empty the dataLayer and return it's previous contents as a string.
+     * Clear the data layer
+     * 
+     * @return void
+     */
+    public function clear()
+    {
+        $this->dataLayer->clear();
+    }
+
+    /**
+     * Return the data layer's contents as a string.
      * 
      * @return string
      */
     public function dump()
     {
-        $data = $this->dataLayer->toJson();
-
-        $this->dataLayer->clear();
-
-        return $data;
+        return $this->dataLayer->toJson();
     }
 }
