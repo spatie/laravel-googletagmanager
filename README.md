@@ -1,21 +1,21 @@
-# Laravel Google Tag Manager
+# An Easy Google Tag Manager implementation for your Laravel application
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Quality Score](https://img.shields.io/scrutinizer/g/thephpspatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpspatie/laravel-googletagmanager)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
-Easy Google Tag Manager implementation in your laravel application. Supports laravel 4 & 5.
+An Easy Google Tag Manager implementation for your Laravel application. Supports Laravel 4 & 5.
 
 ## Install
 
-Via Composer
+You can install the package via Composer:
 
 ``` bash
 $ composer require spatie/laravel-googletagmanager
 ```
 
-Register the service provider and facade
+Register the service provider and facade:
 
 ``` php
 // config/app.php (L5) or app/config/app.php (L4)
@@ -32,7 +32,7 @@ Register the service provider and facade
 
 ```
 
-Publish the config files
+Publish the config files:
 
 ``` bash
 // L5
@@ -70,7 +70,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security
 
-If you discover any security related issues, please email sebastian@spatie.be instead of using the issue tracker.
+If you discover any security related issues, please email freek@spatie.be instead of using the issue tracker.
 
 ## Credits
 
