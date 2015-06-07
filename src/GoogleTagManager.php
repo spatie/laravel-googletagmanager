@@ -20,20 +20,19 @@ class GoogleTagManager
     protected $dataLayer;
 
     /**
-     * @param  string $id
-     * @return void
+     * @param string $id
      */
     public function __construct($id)
     {
         $this->id = $id;
-        $this->dataLayer = new DataLayer;
+        $this->dataLayer = new DataLayer();
 
         $this->enabled = true;
     }
 
     /**
-     * Return the Google Tag Manager id
-     * 
+     * Return the Google Tag Manager id.
+     *
      * @return string
      */
     public function id()
@@ -43,7 +42,7 @@ class GoogleTagManager
 
     /**
      * Check whether script rendering is enabled.
-     * 
+     *
      * @return bool
      */
     public function isEnabled()
@@ -52,9 +51,7 @@ class GoogleTagManager
     }
 
     /**
-     * Enable Google Tag Manager scripts rendering
-     * 
-     * @return void
+     * Enable Google Tag Manager scripts rendering.
      */
     public function enable()
     {
@@ -62,9 +59,7 @@ class GoogleTagManager
     }
 
     /**
-     * Enable Google Tag Manager scripts rendering
-     * 
-     * @return void
+     * Enable Google Tag Manager scripts rendering.
      */
     public function disable()
     {
@@ -72,11 +67,10 @@ class GoogleTagManager
     }
 
     /**
-     * Add data to the data layer
-     * 
-     * @param  array|string $key
-     * @param  mixed $value
-     * @return void
+     * Add data to the data layer.
+     *
+     * @param array|string $key
+     * @param mixed        $value
      */
     public function set($key, $value = null)
     {
@@ -84,9 +78,7 @@ class GoogleTagManager
     }
 
     /**
-     * Clear the data layer
-     * 
-     * @return void
+     * Clear the data layer.
      */
     public function clear()
     {
@@ -95,7 +87,7 @@ class GoogleTagManager
 
     /**
      * Return the data layer's contents as a string.
-     * 
+     *
      * @return string
      */
     public function dump()

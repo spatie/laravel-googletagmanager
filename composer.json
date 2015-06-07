@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-googletagmanager",
-    "description": ":package_description",
+    "description": "Google Tag Manager integration for Laravel",
     "keywords": [
         "spatie",
         "laravel-googletagmanager",

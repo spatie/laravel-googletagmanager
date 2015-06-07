@@ -2,7 +2,6 @@
 
 namespace Spatie\GoogleTagManager;
 
-use Config;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Spatie\GoogleTagManager\Providers\Laravel4;
@@ -30,8 +29,6 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -40,8 +37,6 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {

@@ -23,13 +23,12 @@ class ScriptViewCreator
     /**
      * Bind data to the view.
      *
-     * @param  View $view
-     * @return void
+     * @param View $view
      */
     public function create(View $view)
     {
         if (empty($this->googleTagManager->id())) {
-            throw new ApiKeyNotSetException;
+            throw new ApiKeyNotSetException();
         }
 
         $view->with('enabled', $this->googleTagManager->isEnabled());

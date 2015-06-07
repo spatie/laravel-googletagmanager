@@ -9,8 +9,6 @@ class Laravel4 extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -24,12 +22,10 @@ class Laravel4 extends ServiceProvider
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {
-        $this->app['googletagmanager'] = $this->app->share(function($app) {
+        $this->app['googletagmanager'] = $this->app->share(function ($app) {
             $googleTagManager = new GoogleTagManager($app['config']->get('googletagmanager::id'));
 
             if ($app['config']->get('googletagmanager::enabled') === false) {

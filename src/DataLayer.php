@@ -17,10 +17,9 @@ class DataLayer
     /**
      * Add data to the data layer. Supports dot notation.
      * Inspired by laravel's config repository class.
-     * 
-     * @param  array|string $key
-     * @param  mixed $value
-     * @return void
+     *
+     * @param array|string $key
+     * @param mixed        $value
      */
     public function set($key, $value = null)
     {
@@ -37,8 +36,6 @@ class DataLayer
 
     /**
      * Empty the data layer.
-     * 
-     * @return void
      */
     public function clear()
     {
@@ -46,8 +43,8 @@ class DataLayer
     }
 
     /**
-     * Return a json representation of the data layer
-     * 
+     * Return a json representation of the data layer.
+     *
      * @return string
      */
     public function toJson()
