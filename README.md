@@ -45,7 +45,6 @@ $ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/larav
 It will publish a configuration file with this contents:
 
 ``` php
-
 return [
 
     // The Google Tag Manager id, should be a code that looks something like "gtm-xxxx"
