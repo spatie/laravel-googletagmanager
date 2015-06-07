@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-googletagmanager)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
-An Easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. Supports Laravel 4 & 5.
+An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. Supports Laravel 4 & 5.
 
 ## Install
 
@@ -42,6 +42,21 @@ $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManage
 $ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources"
 ```
 
+It will publish a configuration file with this contents:
+
+``` php
+
+return [
+
+    // The Google Tag Manager id, should be a code that looks something like "gtm-xxxx"
+    'id' => '',
+    
+    // Enable or disable script rendering. Useful for local development.
+    'enabled' => true,
+
+];
+```
+
 Optionally publish the view files (it's recommended not to do this if you don't need to edit them for easier package updates)
 
 ``` bash
@@ -51,6 +66,8 @@ $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManage
 // L4
 $ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources"
 ```
+
+
 
 ## Setup
 
