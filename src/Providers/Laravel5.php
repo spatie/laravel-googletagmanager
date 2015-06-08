@@ -12,14 +12,14 @@ class Laravel5 extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'googletagmanager');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'googletagmanager');
 
         $this->publishes([
-            __DIR__.'/../resources/config/config.php' => config_path('googletagmanager.php'),
+            __DIR__.'/../../resources/config/config.php' => config_path('googletagmanager.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/googletagmanager'),
+            __DIR__.'/../../resources/views' => base_path('resources/views/vendor/googletagmanager'),
         ], 'views');
 
         $this->app['view']->creator(

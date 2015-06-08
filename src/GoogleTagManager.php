@@ -59,7 +59,7 @@ class GoogleTagManager
     }
 
     /**
-     * Enable Google Tag Manager scripts rendering.
+     * Disable Google Tag Manager scripts rendering.
      */
     public function disable()
     {
@@ -78,20 +78,20 @@ class GoogleTagManager
     }
 
     /**
-     * Clear the data layer.
+     * Retrieve the data layer
+     * 
+     * @return \Spatie\GoogleTagManager\DataLayer
      */
-    public function clear()
+    public function getDataLayer()
     {
-        $this->dataLayer->clear();
+        return $this->dataLayer;
     }
 
     /**
-     * Return the data layer's contents as a string.
-     *
-     * @return string
+     * Clear the data layer
      */
-    public function dump()
+    public function clear()
     {
-        return $this->dataLayer->toJson();
+        $this->dataLayer = new DataLayer();
     }
 }

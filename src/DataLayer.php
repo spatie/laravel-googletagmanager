@@ -9,9 +9,9 @@ class DataLayer
      */
     protected $data;
 
-    public function __construct()
+    public function __construct($data = [])
     {
-        $this->data = [];
+        $this->data = $data;
     }
 
     /**
