@@ -2,8 +2,12 @@
 
 namespace Spatie\GoogleTagManager;
 
+use Illuminate\Support\Traits\MacroableTrait as Macroable;
+
 class GoogleTagManager
 {
+    use Macroable;
+
     /**
      * @var string
      */
