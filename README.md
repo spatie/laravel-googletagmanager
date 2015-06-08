@@ -39,7 +39,7 @@ Publish the config files:
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="config"
 
 // L4
-$ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources"
+$ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/config"
 ```
 
 It will publish a configuration file with this contents:
@@ -63,7 +63,7 @@ Optionally publish the view files (it's recommended not to do this if you don't 
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
 
 // L4
-$ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources"
+$ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/views"
 ```
 
 
