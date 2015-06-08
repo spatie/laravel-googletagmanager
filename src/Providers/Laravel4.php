@@ -15,7 +15,7 @@ class Laravel4 extends ServiceProvider
         $this->package('spatie/googletagmanager', null, __DIR__.'/../../resources');
 
         $this->app['view']->creator(
-            ['googletagmanager::script', 'googletagmanager::push'],
+            ['googletagmanager::script'],
             'Spatie\GoogleTagManager\ScriptViewCreator'
         );
     }

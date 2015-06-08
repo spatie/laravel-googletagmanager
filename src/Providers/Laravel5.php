@@ -23,7 +23,7 @@ class Laravel5 extends ServiceProvider
         ], 'views');
 
         $this->app['view']->creator(
-            ['googletagmanager::script', 'googletagmanager::push'],
+            ['googletagmanager::script'],
             'Spatie\GoogleTagManager\ScriptViewCreator'
         );
     }

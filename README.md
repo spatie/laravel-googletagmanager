@@ -29,7 +29,6 @@ Register the service provider and facade:
   ...
   'GoogleTagManager' => 'Spatie\GoogleTagManager\GoogleTagManagerFacade',
 ],
-
 ```
 
 Publish the config files:
@@ -66,13 +65,58 @@ $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManage
 $ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/views"
 ```
 
-
-
 ## Setup
 
 ...
 
 ## Usage
+
+### Basic Example
+
+First you'll need to include Google Tag Manager's script. Google's docs recommend doing this right after the body tag.
+
+```
+{{-- layout.blade.php --}}
+<html>
+  {{-- ... --}}
+  <body>
+    @include('googletagmanager::script')
+    {{-- ... --}}
+  </body>
+</html>
+```
+
+Your base dataLayer will also be rendered here. To add data, use the `set()` function. 
+
+``` php
+// HomeController.php
+
+public function index()
+{
+    GoogleTagManager::set('pageType', 'productDetail');
+
+    return view('home');
+}
+```
+
+This renders: 
+
+``` html
+<html>
+  <!-- ... -->
+  <body>
+    <script>dataLayer = [{"pageType":"productDetail"}];</script>
+    <script>/* Google Tag Manage's script */</script>
+    <!-- ... -->
+  </body>
+</html>
+```
+
+### Macroable
+
+...
+
+### Dump
 
 ...
 

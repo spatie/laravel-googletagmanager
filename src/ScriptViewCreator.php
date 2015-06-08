@@ -31,16 +31,6 @@ class ScriptViewCreator
             throw new ApiKeyNotSetException();
         }
 
-        $data = $view->getData();
-
-        $dataLayer = isset($data['dataLayer']) ? $data['dataLayer'] : $this->googleTagManager->getDataLayer();
-
-        if (is_array($dataLayer)) {
-            $dataLayer = new DataLayer($dataLayer);
-        }
-
-        $view
-            ->with('dataLayer', $dataLayer)
-            ->with('enabled', $this->googleTagManager->isEnabled());
+        $view->with('enabled', $this->googleTagManager->isEnabled());
     }
 }
