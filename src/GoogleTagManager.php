@@ -98,4 +98,15 @@ class GoogleTagManager
     {
         $this->dataLayer = new DataLayer();
     }
+
+    /**
+     * Utility function to dump an array as json
+     * 
+     * @param  array $data
+     * @return string
+     */
+    public function dump($data)
+    {
+        return (new DataLayer($data))->toJson();
+    }
 }
