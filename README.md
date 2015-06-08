@@ -106,17 +106,25 @@ This renders:
   <!-- ... -->
   <body>
     <script>dataLayer = [{"pageType":"productDetail"}];</script>
-    <script>/* Google Tag Manage's script */</script>
+    <script>/* Google Tag Manager's script */</script>
     <!-- ... -->
   </body>
 </html>
 ```
 
+... (DataLayer class)
+
+GoogleTagManager also has a `dump()` function to convert arrays to json objects on the fly.
+
+```
+<article data-gtm-article='{!! GoogleTagManager::dump($article->toArray()) !!}' data-gtm-click>
+    {{-- ... --}}
+</article>
+```
+
+... (js example)
+
 ### Macroable
-
-...
-
-### Dump
 
 ...
 
