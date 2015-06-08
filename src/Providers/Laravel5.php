@@ -33,7 +33,7 @@ class Laravel5 extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../resources/config/config.php', 'googletagmanager');
+        $this->mergeConfigFrom(__DIR__.'/../../resources/config/config.php', 'googletagmanager');
 
         $googleTagManager = new GoogleTagManager(config('googletagmanager.id'));
 
