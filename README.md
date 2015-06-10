@@ -130,7 +130,7 @@ This renders:
 
 ```php
 // Retrieve your Google Tag Manager id
-$id = GoogleTagManager::id(); // gtm-xxxx
+$id = GoogleTagManager::id(); // GTM-XXXXXX
 
 // Check whether script rendering is enabled
 $enabled = GoogleTagManager::isEnabled(); // true|false
@@ -162,7 +162,7 @@ $('[data-gtm-click]').on('click', function() {
             }
         }
         'eventCallback': function() {
-          document.location = $(this).attr('href');
+            document.location = $(this).attr('href');
         }
     });
 });
@@ -175,7 +175,7 @@ Internally GoogleTagManager uses the DataLayer class to hold and render data. Th
 ```php
 $dataLayer = new Spatie\GoogleTagManager\DataLayer();
 $dataLayer->set('ecommerce.click.products', $products->toJson());
-echo $dataLayer->toJson(); // {'ecommerce': {'click': {'products': '...'} } }
+echo $dataLayer->toJson(); // {"ecommerce":{"click":{"products":"..."}}}
 ```
 
 If you want full access to the GoogleTagManager instances' data layer, call the `getDataLayer()` function.
