@@ -204,7 +204,7 @@ GoogleTagManager::macro('impression', function ($product) {
     ]);
 });
 
-GoogleTagManager::impression('product');
+GoogleTagManager::impression($product);
 ```
 
 ## Changelog
