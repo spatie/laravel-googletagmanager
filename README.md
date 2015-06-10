@@ -139,9 +139,15 @@ $enabled = GoogleTagManager::isEnabled(); // true|false
 GoogleTagManager::enable();
 GoogleTagManager::disable();
 
-// Add data to the data layer (automatically renders right before the tag manager script)
+// Add data to the data layer (automatically renders right before the tag manager script). Setting new values merges them with the previous ones. Set als supports dot notation.
 GoogleTagManager::set(['foo' => 'bar']);
-GoogleTagManager::set('baz', 'qux');
+GoogleTagManager::set('baz', ['ho' => 'dor']);
+GoogleTagManager::set('baz.ho', 'doorrrrr');
+
+// [
+//   'foo' => 'bar',
+//   'baz' => ['ho' => 'doorrrrr']
+// ]
 ```
 
 ### Dump
