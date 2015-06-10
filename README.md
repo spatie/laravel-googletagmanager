@@ -5,19 +5,27 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-googletagmanager)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
-An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. Supports Laravel 4 & 5.
+An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. Supports both Laravel 4 & 5.
+
+## Google Tag Manager
+
+Google Tag Manager allows you manage tracking and marketing optimization with AdWords, Google Analytics, et al. without editing your site code. One way of using Google Tag Manager is by sending data through a `dataLayer` variable in javascript on page load and custom events. This package makes managing the data layer easy.
+
+For concrete examples of what you want to send throught the data layer, check out Google Tag Manager's [Developer Guide](https://developers.google.com/tag-manager/devguide).
+
+You'll also need a Google Tag Manager id, which you can retrieve by [signing up](https://tagmanager.google.com/#/home) and creating an account for your website.
 
 ## Install
 
 You can install the package via Composer:
 
-``` bash
+```bash
 $ composer require spatie/laravel-googletagmanager
 ```
 
 Register the service provider and facade:
 
-``` php
+```php
 // config/app.php (L5) or app/config/app.php (L4)
 
 'providers' => [
@@ -33,7 +41,7 @@ Register the service provider and facade:
 
 Publish the config files:
 
-``` bash
+```bash
 // L5
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="config"
 
@@ -43,7 +51,7 @@ $ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/larav
 
 It will publish a configuration file with this contents:
 
-``` php
+```php
 return [
 
     // The Google Tag Manager id, should be a code that looks something like "gtm-xxxx"
@@ -55,19 +63,15 @@ return [
 ];
 ```
 
-Optionally publish the view files (it's recommended not to do this if you don't need to edit them for easier package updates)
+Optionally publish the view files. It's **not** recommended to do this unless necessary so your views stay up-to-date in future package releases.
 
-``` bash
+```bash
 // L5
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
 
 // L4
 $ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/views"
 ```
-
-## Setup
-
-...
 
 ## Usage
 
@@ -88,7 +92,7 @@ First you'll need to include Google Tag Manager's script. Google's docs recommen
 
 Your base dataLayer will also be rendered here. To add data, use the `set()` function. 
 
-``` php
+```php
 // HomeController.php
 
 public function index()
@@ -101,7 +105,7 @@ public function index()
 
 This renders: 
 
-``` html
+```html
 <html>
   <!-- ... -->
   <body>
@@ -112,21 +116,80 @@ This renders:
 </html>
 ```
 
-... (DataLayer class)
+### Other Simple Methods
 
-GoogleTagManager also has a `dump()` function to convert arrays to json objects on the fly.
+```php
+// Retrieve your Google Tag Manager id
+$id = GoogleTagManager::id(); // gtm-xxxx
+
+// Check whether script rendering is enabled
+$enabled = GoogleTagManager::isEnabled(); // true|false
+
+// Enable and disable script rendering
+GoogleTagManager::enable();
+GoogleTagManager::disable();
+
+// Add data to the data layer (automatically renders right before the tag manager script)
+GoogleTagManager::set(['foo' => 'bar']);
+GoogleTagManager::set('baz', 'qux');
+```
+
+### Dump
+
+GoogleTagManager also has a `dump()` function to convert arrays to json objects on the fly. This is useful for sending data to the view that you want to use at a later time.
 
 ```
-<article data-gtm-article='{!! GoogleTagManager::dump($article->toArray()) !!}' data-gtm-click>
-    {{-- ... --}}
-</article>
+<a data-gtm-product='{!! GoogleTagManager::dump($article->toArray()) !!}' data-gtm-click>Product</a>
 ```
 
-... (js example)
+```js
+$('[data-gtm-click]').on('click', function() {
+    dataLayer.push({
+        'event': 'productClick',
+        'ecommerce': {
+            'click': {
+                'products': $(this).data('gtm-product')
+            }
+        }
+        'eventCallback': function() {
+          document.location = $(this).attr('href');
+        }
+    });
+});
+```
+
+### DataLayer
+
+Internally GoogleTagManager uses the DataLayer class to hold and render data. This class is perfectly usable without the rest of the package for some custom implementations. DataLayer is a glorified array that has dot notation support and easily renders to json.
+
+```php
+$dataLayer = new Spatie\GoogleTagManager\DataLayer();
+$dataLayer->set('ecommerce.click.products', $products->toJson());
+echo $dataLayer->toJson(); // {'ecommerce': {'click': {'products': '...'} } }
+```
+
+If you want full access to the GoogleTagManager instances' data layer, call the `getDataLayer()` function.
+
+```php
+$dataLayer = GoogleTagManager::getDataLayer();
+```
 
 ### Macroable
 
-...
+Adding tags to pages can become a repetitive process. Since this package isn't supposed to be opinionated on what your tags should look like, the GoogleTagManager is macroable.
+
+```php
+GoogleTagManager::macro('impression', function ($product) {
+    GoogleTagManager::set('ecommerce', [
+        'currencyCode' => 'EUR',
+        'detail' => [
+            'products' => [ $product->getGoogleTagManagerData() ]
+        ]
+    ]);
+});
+
+GoogleTagManager::impression('product');
+```
 
 ## Changelog
 
