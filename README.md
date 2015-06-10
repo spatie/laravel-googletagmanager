@@ -79,7 +79,7 @@ Example setup:
 ```php
 return [
     'id' => 'GTM-XXXXXX',
-    'enabled' => app()->environment() === 'production',
+    'enabled' => !app()->isLocal(),
 ];
 ```
 
