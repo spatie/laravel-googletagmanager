@@ -23,7 +23,7 @@ You can install the package via Composer:
 $ composer require spatie/laravel-googletagmanager
 ```
 
-Register the service provider and facade:
+Start by registering the package's the service provider and facade:
 
 ```php
 // config/app.php (L5) or app/config/app.php (L4)
@@ -39,7 +39,9 @@ Register the service provider and facade:
 ],
 ```
 
-Publish the config files:
+*The facade is optional, but the rest of this guide assumes you're using the facade.*
+
+Next, publish the config files:
 
 ```bash
 // L5
@@ -47,20 +49,6 @@ $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManage
 
 // L4
 $ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/config"
-```
-
-It will publish a configuration file with this contents:
-
-```php
-return [
-
-    // The Google Tag Manager id, should be a code that looks something like "gtm-xxxx"
-    'id' => '',
-    
-    // Enable or disable script rendering. Useful for local development.
-    'enabled' => true,
-
-];
 ```
 
 Optionally publish the view files. It's **not** recommended to do this unless necessary so your views stay up-to-date in future package releases.
@@ -71,6 +59,28 @@ $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManage
 
 // L4
 $ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/views"
+```
+
+## Configuration
+
+The configuration file is fairly simple.
+
+```php
+return [
+    'id' => '',
+    'enabled' => true,
+];
+```
+
+During development, you don't want to be sending data to your production's tag manager account, which is where `enabled` comes in.
+
+Example setup:
+
+```php
+return [
+    'id' => 'GTM-XXXXXX',
+    'enabled' => app()->environment() === 'production',
+];
 ```
 
 ## Usage
