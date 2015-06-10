@@ -5,15 +5,15 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-googletagmanager)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
-An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. Supports both Laravel 4 & 5.
+An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. This package supports Laravel 4 & Laravel 5.
 
 ## Google Tag Manager
 
-Google Tag Manager allows you manage tracking and marketing optimization with AdWords, Google Analytics, et al. without editing your site code. One way of using Google Tag Manager is by sending data through a `dataLayer` variable in javascript on page load and custom events. This package makes managing the data layer easy.
+Google Tag Manager allows you manage tracking and marketing optimization with AdWords, Google Analytics, et al. without editing your site code. One way of using Google Tag Manager is by sending data through a `dataLayer` variable in javascript after the page load and on custom events. This package makes managing the data layer easy.
 
 For concrete examples of what you want to send throught the data layer, check out Google Tag Manager's [Developer Guide](https://developers.google.com/tag-manager/devguide).
 
-You'll also need a Google Tag Manager id, which you can retrieve by [signing up](https://tagmanager.google.com/#/home) and creating an account for your website.
+You'll also need a Google Tag Manager ID, which you can retrieve by [signing up](https://tagmanager.google.com/#/home) and creating an account for your website.
 
 ## Install
 
