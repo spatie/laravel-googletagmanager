@@ -2,11 +2,14 @@
 
 All Notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.0.0
+- This is now a Laravel 5 specific package. Laravel 4 version can be found here: https://github.com/spatie/laravel4-googletagmanager
+
 ## 1.2.2
 - Changed: If GoogleTagManager is disabled, ApiKeyNotSetException won't throw
 
 ## 1.2.1
 - Bugfix: script rendering was missing $dataLayer
 
-## 1.2
+## 1.2.0
 - First official release

@@ -6,7 +6,9 @@
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/46932ea6-5df3-4dca-8342-461b4d3db3a7.svg?style=flat-square)](https://insight.sensiolabs.com/projects/46932ea6-5df3-4dca-8342-461b4d3db3a7)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
-An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. This package supports Laravel 4 & Laravel 5.
+An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel 5 application.
+
+Laravel 4 version: [spatie/laravel4-googletagmanager](https://github.com/spatie/laravel4-googletagmanager)
 
 ## Google Tag Manager
 
@@ -27,7 +29,7 @@ $ composer require spatie/laravel-googletagmanager
 Start by registering the package's the service provider and facade:
 
 ```php
-// config/app.php (L5) or app/config/app.php (L4)
+// config/app.php
 
 'providers' => [
   ...
@@ -45,21 +47,13 @@ Start by registering the package's the service provider and facade:
 Next, publish the config files:
 
 ```bash
-// L5
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="config"
-
-// L4
-$ php artisan config:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/config"
 ```
 
 Optionally publish the view files. It's **not** recommended to do this unless necessary so your views stay up-to-date in future package releases.
 
 ```bash
-// L5
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
-
-// L4
-$ php artisan views:publish spatie/googletagmanager --path="vendor/spatie/laravel-googletagmanager/resources/views"
 ```
 
 ## Configuration
