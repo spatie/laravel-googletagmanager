@@ -7,7 +7,7 @@
         "laravel",
         "google tag manager"
     ],
-    "homepage": "https://github.com/thephpspatie/laravel-googletagmanager",
+    "homepage": "https://github.com/spatie/laravel-googletagmanager",
     "license": "MIT",
     "authors": [
         {
