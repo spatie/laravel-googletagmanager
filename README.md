@@ -3,6 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-googletagmanager.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-googletagmanager)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/46932ea6-5df3-4dca-8342-461b4d3db3a7.svg?style=flat-square)](https://insight.sensiolabs.com/projects/46932ea6-5df3-4dca-8342-461b4d3db3a7)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-googletagmanager.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-googletagmanager)
 
 An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation for your Laravel application. This package supports Laravel 4 & Laravel 5.
