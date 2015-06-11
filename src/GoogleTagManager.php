@@ -2,7 +2,7 @@
 
 namespace Spatie\GoogleTagManager;
 
-use Illuminate\Support\Traits\MacroableTrait as Macroable;
+use Illuminate\Support\Traits\Macroable;
 
 class GoogleTagManager
 {
