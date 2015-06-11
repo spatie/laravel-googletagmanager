@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\GoogleTagManager\Providers;
+namespace Spatie\GoogleTagManager;
 
 use Illuminate\Support\ServiceProvider;
 use Spatie\GoogleTagManager\GoogleTagManager;
