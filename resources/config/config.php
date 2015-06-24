@@ -19,4 +19,9 @@ return [
      */
     'macroPath' => '',
 
+    /*
+     * The key under which data is saved to the session with flash.
+     */
+    'sessionKey' => '_googleTagManager',
+
 ];

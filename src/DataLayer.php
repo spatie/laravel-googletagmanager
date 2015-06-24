@@ -43,6 +43,16 @@ class DataLayer
     }
 
     /**
+     * Return an array representation of the data layer.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
+
+    /**
      * Return a json representation of the data layer.
      *
      * @return string

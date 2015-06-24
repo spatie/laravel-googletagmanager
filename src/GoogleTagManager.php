@@ -24,12 +24,18 @@ class GoogleTagManager
     protected $dataLayer;
 
     /**
+     * @var \Spatie\GoogleTagManager\DataLayer
+     */
+    protected $flashDataLayer;
+
+    /**
      * @param string $id
      */
     public function __construct($id)
     {
         $this->id = $id;
         $this->dataLayer = new DataLayer();
+        $this->flashDataLayer = new DataLayer();
 
         $this->enabled = true;
     }
@@ -82,7 +88,7 @@ class GoogleTagManager
     }
 
     /**
-     * Retrieve the data layer
+     * Retrieve the data layer.
      * 
      * @return \Spatie\GoogleTagManager\DataLayer
      */
@@ -92,7 +98,28 @@ class GoogleTagManager
     }
 
     /**
-     * Clear the data layer
+     * Add data to the data layer for the next request.
+     * 
+     * @param array|string $key
+     * @param mixed        $value
+     */
+    public function flash($key, $value = null)
+    {
+        $this->flashDataLayer->set($key, $value);
+    }
+
+    /**
+     * Retrieve the data layer's data for the next request.
+     * 
+     * @return array
+     */
+    public function getFlashData()
+    {
+        return $this->flashDataLayer->toArray();
+    }
+
+    /**
+     * Clear the data layer.
      */
     public function clear()
     {
@@ -100,7 +127,7 @@ class GoogleTagManager
     }
 
     /**
-     * Utility function to dump an array as json
+     * Utility function to dump an array as json.
      * 
      * @param  array $data
      * @return string
