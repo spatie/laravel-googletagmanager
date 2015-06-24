@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.1.0
+- Added: option to specify the path to macros
+
 ## 2.0.0
 - This is now a Laravel 5 specific package. Laravel 4 version can be found here: https://github.com/spatie/laravel4-googletagmanager
 
