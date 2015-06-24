@@ -43,5 +43,9 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
 
         $this->app->instance('Spatie\GoogleTagManager\GoogleTagManager', $googleTagManager);
         $this->app->alias('Spatie\GoogleTagManager\GoogleTagManager', 'googletagmanager');
+
+        if (is_file(config('googletagmanager.macroPath'))) {
+            include config('googletagmanager.macroPath');
+        }
     }
 }

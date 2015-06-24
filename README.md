@@ -62,9 +62,26 @@ The configuration file is fairly simple.
 
 ```php
 return [
+
+    /*
+     * The Google Tag Manager id, should be a code that looks something like "gtm-xxxx".
+     */
     'id' => '',
+    
+    /*
+     * Enable or disable script rendering. Useful for local development.
+     */
     'enabled' => true,
+
+    /*
+     * If you want to use some macro's you 'll probably store them
+     * in a dedicated file. You can optionally define the path
+     * to that file here and we will load it for you.
+     */
+    'macroPath' => '',
+
 ];
+
 ```
 
 During development, you don't want to be sending data to your production's tag manager account, which is where `enabled` comes in.
@@ -75,6 +92,7 @@ Example setup:
 return [
     'id' => 'GTM-XXXXXX',
     'enabled' => app()->environment() === 'production',
+    'macroPath => app_path('Services/GoogleTagManager/Macros.php'),
 ];
 ```
 
@@ -201,6 +219,8 @@ GoogleTagManager::macro('impression', function ($product) {
 
 GoogleTagManager::impression($product);
 ```
+
+In the configuration you can optionally set the path to the file that contains your macros.
 
 ## Changelog
 
