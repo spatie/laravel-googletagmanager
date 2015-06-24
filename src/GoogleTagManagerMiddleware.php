@@ -51,7 +51,7 @@ class GoogleTagManagerMiddleware
 
         $response = $next($request);
 
-        $this->session->put($this->sessionKey, $this->googleTagManager->getFlashData());
+        $this->session->flash($this->sessionKey, $this->googleTagManager->getFlashData());
 
         return $response;
     }
