@@ -159,7 +159,7 @@ public function postContact()
 
     GoogleTagManager::flash('formResponse', 'success');
 
-    return redirect()->action('ContactController@index');
+    return redirect()->action('ContactController@getContact');
 }
 ```
 
