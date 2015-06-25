@@ -139,6 +139,43 @@ This renders:
 </html>
 ```
 
+#### Flashing data for the next request
+
+The package can also set data to render on the next request. This is useful for setting data after an internal redirect.
+
+```php
+// ContactController.php
+
+public function getContact()
+{
+    GoogleTagManager::set('pageType', 'contact');
+
+    return view('contact');
+}
+
+public function postContact()
+{
+    // Do contact form stuff...
+
+    GoogleTagManager::flash('formResponse', 'success');
+
+    return redirect()->action('ContactController@index');
+}
+```
+
+After a form submit, the following dataLayer will be parsed on the contact page:
+
+```html
+<html>
+  <!-- ... -->
+  <body>
+    <script>dataLayer = [{"pageType":"contact","formResponse":"success"}];</script>
+    <script>/* Google Tag Manager's script */</script>
+    <!-- ... -->
+  </body>
+</html>
+```
+
 ### Other Simple Methods
 
 ```php

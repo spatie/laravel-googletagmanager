@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.2.0
+- Added: Flash function
+
 ## 2.1.0
 - Added: option to specify the path to macros
 
