@@ -10,7 +10,7 @@ An easy [Google Tag Manager](http://www.google.com/tagmanager/) implementation f
 
 Laravel 4 version: [spatie/laravel4-googletagmanager](https://github.com/spatie/laravel4-googletagmanager)
 
-Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## Google Tag Manager
 
@@ -291,7 +291,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 - [All Contributors](../../contributors)
 
 ## About Spatie
-Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+Spatie is a webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## License
 
