@@ -59,6 +59,6 @@ class DataLayer
      */
     public function toJson()
     {
-        return empty($this->data) ? null : json_encode($this->data);
+        return json_encode($this->data);
     }
 }
