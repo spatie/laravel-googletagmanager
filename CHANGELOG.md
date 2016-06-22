@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.2.1
+- Fixed: `toJson` should always return a string
+
 ## 2.2.0
 - Added: Flash function
 
