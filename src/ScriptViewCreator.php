@@ -34,6 +34,7 @@ class ScriptViewCreator
         $view
             ->with('enabled', $this->googleTagManager->isEnabled())
             ->with('id', $this->googleTagManager->id())
-            ->with('dataLayer', $this->googleTagManager->getDataLayer());
+            ->with('dataLayer', $this->googleTagManager->getDataLayer())
+            ->with('pushData', $this->googleTagManager->getPushData());
     }
 }
