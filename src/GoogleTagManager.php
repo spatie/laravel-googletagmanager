@@ -153,6 +153,7 @@ class GoogleTagManager
     public function clear()
     {
         $this->dataLayer = new DataLayer();
+        $this->pushDataLayer = new \Illuminate\Support\Collection();
     }
 
     /**
