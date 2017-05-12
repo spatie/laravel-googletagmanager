@@ -59,6 +59,6 @@ class DataLayer
      */
     public function toJson()
     {
-        return json_encode($this->data);
+        return json_encode($this->data, JSON_UNESCAPED_UNICODE);
     }
 }
