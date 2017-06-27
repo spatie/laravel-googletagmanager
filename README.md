@@ -66,13 +66,14 @@ Optionally publish the view files. It's **not** recommended to do this unless ne
 $ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
 ```
 
-If you plan on using the [flash-functionality](#flashing-data-for-the-next-request) you must install the middleware:
+If you plan on using the [flash-functionality](#flashing-data-for-the-next-request) you must install the GoogleTagManagerMiddleware, after the StartSession middleware:
 
 ```php
 // app/Http/Kernel.php
 
     protected $middleware = [
         ...
+        'Illuminate\Session\Middleware\StartSession',
         'Spatie\GoogleTagManager\GoogleTagManagerMiddleware',
         ...
     ];
