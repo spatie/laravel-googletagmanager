@@ -123,14 +123,18 @@ return [
 
 ### Basic Example
 
-First you'll need to include Google Tag Manager's script. Google's docs recommend doing this right after the body tag.
+First you'll need to include Google Tag Manager's script, and the noscript version. Google's docs recommend adding the script as high as possible in the `<head>` tag and the noscript immediately after the `<body>` tag.
 
 ```
 {{-- layout.blade.php --}}
 <html>
+  <head>
+    @include('googletagmanager::script')
+    {{-- ... --}}
+  </head>
   {{-- ... --}}
   <body>
-    @include('googletagmanager::script')
+    @include('googletagmanager::noscript')
     {{-- ... --}}
   </body>
 </html>
