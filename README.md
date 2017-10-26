@@ -25,22 +25,24 @@ You'll also need a Google Tag Manager ID, which you can retrieve by [signing up]
 You can install the package via Composer:
 
 ```bash
-$ composer require spatie/laravel-googletagmanager
+composer require spatie/laravel-googletagmanager
 ```
 
-Start by registering the package's the service provider and facade:
+In Laravel 5.5 and up, the package will automatically register the service provider and facade
+
+In L5.4 or below start by registering the package's the service provider and facade:
 
 ```php
 // config/app.php
 
 'providers' => [
   ...
-  'Spatie\GoogleTagManager\GoogleTagManagerServiceProvider',
+  Spatie\GoogleTagManager\GoogleTagManagerServiceProvider::class,
 ],
 
 'aliases' => [
   ...
-  'GoogleTagManager' => 'Spatie\GoogleTagManager\GoogleTagManagerFacade',
+  'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
 ],
 ```
 
@@ -65,8 +67,8 @@ If you plan on using the [flash-functionality](#flashing-data-for-the-next-reque
 
     protected $middleware = [
         ...
-        'Illuminate\Session\Middleware\StartSession',
-        'Spatie\GoogleTagManager\GoogleTagManagerMiddleware',
+        Illuminate\Session\Middleware\StartSession::class,
+        Spatie\GoogleTagManager\GoogleTagManagerMiddleware::class,
         ...
     ];
 ``` 
