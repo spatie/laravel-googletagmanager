@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
-## 2.3.0 - 2017-10-26
+## 2.4.0 - 2017-10-26
 - Added: support for L5.5 package discovery
 
 ## 2.2.3
