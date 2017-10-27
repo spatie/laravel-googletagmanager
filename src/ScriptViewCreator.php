@@ -7,24 +7,14 @@ use Spatie\GoogleTagManager\Exceptions\ApiKeyNotSetException;
 
 class ScriptViewCreator
 {
-    /**
-     * @var \Spatie\GoogleTagManager\GoogleTagManager
-     */
+    /** @var \Spatie\GoogleTagManager\GoogleTagManager */
     protected $googleTagManager;
 
-    /**
-     * @param  \Spatie\GoogleTagManager\GoogleTagManager
-     */
     public function __construct(GoogleTagManager $googleTagManager)
     {
         $this->googleTagManager = $googleTagManager;
     }
 
-    /**
-     * Bind data to the view.
-     *
-     * @param View $view
-     */
     public function create(View $view)
     {
         if ($this->googleTagManager->isEnabled() && empty($this->googleTagManager->id())) {
