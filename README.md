@@ -51,13 +51,13 @@ In L5.4 or below start by registering the package's the service provider and fac
 Next, publish the config files:
 
 ```bash
-$ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="config"
 ```
 
 Optionally publish the view files. It's **not** recommended to do this unless necessary so your views stay up-to-date in future package releases.
 
 ```bash
-$ php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Spatie\GoogleTagManager\GoogleTagManagerServiceProvider" --tag="views"
 ```
 
 If you plan on using the [flash-functionality](#flashing-data-for-the-next-request) you must install the GoogleTagManagerMiddleware, after the StartSession middleware:
