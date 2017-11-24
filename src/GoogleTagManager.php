@@ -148,6 +148,21 @@ class GoogleTagManager
     }
 
     /**
+     * Retrieve the data layer's data and push data in a flat array.dot k=>v array
+     *
+     * @return array
+     */
+    public function getNoscriptData()
+    {
+        $data = $this->dataLayer->toArray();
+        foreach ($this->pushDataLayer as $pushData) {
+            $data = array_merge($data, $pushData);
+        }
+
+        return \Illuminate\Support\Arr::dot($data);
+    }
+
+    /**
      * Clear the data layer.
      */
     public function clear()
