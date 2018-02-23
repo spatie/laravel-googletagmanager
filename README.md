@@ -36,13 +36,13 @@ In L5.4 or below start by registering the package's the service provider and fac
 // config/app.php
 
 'providers' => [
-  ...
-  Spatie\GoogleTagManager\GoogleTagManagerServiceProvider::class,
+    ...
+    Spatie\GoogleTagManager\GoogleTagManagerServiceProvider::class,
 ],
 
 'aliases' => [
-  ...
-  'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
+    ...
+    'GoogleTagManager' => Spatie\GoogleTagManager\GoogleTagManagerFacade::class,
 ],
 ```
 
@@ -65,12 +65,12 @@ If you plan on using the [flash-functionality](#flashing-data-for-the-next-reque
 ```php
 // app/Http/Kernel.php
 
-    protected $middleware = [
-        ...
-        Illuminate\Session\Middleware\StartSession::class,
-        Spatie\GoogleTagManager\GoogleTagManagerMiddleware::class,
-        ...
-    ];
+protected $middleware = [
+    ...
+    Illuminate\Session\Middleware\StartSession::class,
+    Spatie\GoogleTagManager\GoogleTagManagerMiddleware::class,
+    ...
+];
 ``` 
 
 ## Configuration
