@@ -67,8 +67,8 @@ If you plan on using the [flash-functionality](#flashing-data-for-the-next-reque
 
 protected $middleware = [
     ...
-    Illuminate\Session\Middleware\StartSession::class,
-    Spatie\GoogleTagManager\GoogleTagManagerMiddleware::class,
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Spatie\GoogleTagManager\GoogleTagManagerMiddleware::class,
     ...
 ];
 ``` 
