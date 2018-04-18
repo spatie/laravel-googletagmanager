@@ -44,7 +44,8 @@ class GoogleTagManager
     protected $pushDataLayer;
 
     /**
-     * @param string $id
+     * @param string[] $id
+     * @param string $layer
      */
     public function __construct($id, $layer)
     {
