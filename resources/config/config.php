@@ -24,4 +24,8 @@ return [
      */
     'sessionKey' => '_googleTagManager',
 
+    /*
+     * Replace default dataLayer with your own variable
+     */
+    'layer' => 'dataLayer',
 ];
