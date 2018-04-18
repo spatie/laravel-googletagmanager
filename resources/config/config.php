@@ -17,7 +17,7 @@ return [
      * in a dedicated file. You can optionally define the path
      * to that file here and we will load it for you.
      */
-    'macroPath' => '',
+    'macroPath' => app_path(''),
 
     /*
      * The key under which data is saved to the session with flash.
