@@ -9,7 +9,7 @@ class GoogleTagManager
     use Macroable;
 
     /**
-     * @var string
+     * @var string[]
      */
     protected $id;
 
@@ -49,7 +49,7 @@ class GoogleTagManager
     /**
      * Return the Google Tag Manager id.
      *
-     * @return string
+     * @return string[]
      */
     public function id()
     {
