@@ -23,7 +23,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
         ], 'views');
 
         $this->app['view']->creator(
-            ['googletagmanager::script'],
+            ['googletagmanager::script', 'googletagmanager::noscript'],
             'Spatie\GoogleTagManager\ScriptViewCreator'
         );
     }
@@ -35,7 +35,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../resources/config/config.php', 'googletagmanager');
 
-        $googleTagManager = new GoogleTagManager(config('googletagmanager.id'));
+        $googleTagManager = new GoogleTagManager(config('googletagmanager.id'), config('googletagmanager.layer'));
 
         if (config('googletagmanager.enabled') === false) {
             $googleTagManager->disable();

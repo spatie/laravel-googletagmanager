@@ -9,9 +9,14 @@ class GoogleTagManager
     use Macroable;
 
     /**
-     * @var string
+     * @var string[]
      */
     protected $id;
+
+    /**
+     * @var string
+     */
+    protected $layer;
 
     /**
      * @var bool
@@ -29,18 +34,26 @@ class GoogleTagManager
     protected $flashDataLayer;
 
     /**
+     * @var \Spatie\GoogleTagManager\DataLayer
+     */
+    protected $noJSDataLayer;
+
+    /**
      * @var \Illuminate\Support\Collection
      */
     protected $pushDataLayer;
 
     /**
-     * @param string $id
+     * @param string[] $id
+     * @param string $layer
      */
-    public function __construct($id)
+    public function __construct($id, $layer)
     {
         $this->id = $id;
+        $this->layer = $layer;
         $this->dataLayer = new DataLayer();
         $this->flashDataLayer = new DataLayer();
+        $this->noJSDataLayer = new DataLayer();
         $this->pushDataLayer = new \Illuminate\Support\Collection();
 
         $this->enabled = true;
@@ -49,11 +62,21 @@ class GoogleTagManager
     /**
      * Return the Google Tag Manager id.
      *
-     * @return string
+     * @return string[]
      */
     public function id()
     {
         return $this->id;
+    }
+
+    /**
+     * Return the Google Tag Manager id.
+     *
+     * @return string
+     */
+    public function getLayer()
+    {
+        return $this->layer;
     }
 
     /**
@@ -122,6 +145,27 @@ class GoogleTagManager
     public function getFlashData()
     {
         return $this->flashDataLayer->toArray();
+    }
+
+    /**
+     * Add data to the data layer for the next request.
+     *
+     * @param array|string $key
+     * @param mixed        $value
+     */
+    public function noScript($key, $value = null)
+    {
+        $this->noJSDataLayer->set($key, $value);
+    }
+
+    /**
+     * Retrieve the data layer's data for the next request.
+     *
+     * @return array
+     */
+    public function getNoScriptData()
+    {
+        return $this->noJSDataLayer->toArray();
     }
 
     /**

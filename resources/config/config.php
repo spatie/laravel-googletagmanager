@@ -5,8 +5,8 @@ return [
     /*
      * The Google Tag Manager id, should be a code that looks something like "gtm-xxxx".
      */
-    'id' => '',
-    
+    'id' => [''],
+
     /*
      * Enable or disable script rendering. Useful for local development.
      */
@@ -17,11 +17,15 @@ return [
      * in a dedicated file. You can optionally define the path
      * to that file here and we will load it for you.
      */
-    'macroPath' => '',
+    'macroPath' => app_path(''),
 
     /*
      * The key under which data is saved to the session with flash.
      */
     'sessionKey' => '_googleTagManager',
 
+    /*
+     * Replace default dataLayer with your own variable
+     */
+    'layer' => 'dataLayer',
 ];
