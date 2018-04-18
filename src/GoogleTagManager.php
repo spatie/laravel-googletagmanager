@@ -14,6 +14,11 @@ class GoogleTagManager
     protected $id;
 
     /**
+     * @var string
+     */
+    protected $layer;
+
+    /**
      * @var bool
      */
     protected $enabled;
@@ -36,9 +41,10 @@ class GoogleTagManager
     /**
      * @param string $id
      */
-    public function __construct($id)
+    public function __construct($id, $layer)
     {
         $this->id = $id;
+        $this->layer = $layer;
         $this->dataLayer = new DataLayer();
         $this->flashDataLayer = new DataLayer();
         $this->pushDataLayer = new \Illuminate\Support\Collection();
@@ -54,6 +60,16 @@ class GoogleTagManager
     public function id()
     {
         return $this->id;
+    }
+
+    /**
+     * Return the Google Tag Manager id.
+     *
+     * @return string
+     */
+    public function getLayer()
+    {
+        return $this->layer;
     }
 
     /**
