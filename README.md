@@ -122,9 +122,12 @@ First you'll need to include Google Tag Manager's script. Google's docs recommen
 ```
 {{-- layout.blade.php --}}
 <html>
-  {{-- ... --}}
+  <head>
+    @include('googletagmanager::head')
+    {{-- ... --}}
+  </head>
   <body>
-    @include('googletagmanager::script')
+    @include('googletagmanager::body')
     {{-- ... --}}
   </body>
 </html>
@@ -147,12 +150,12 @@ This renders:
 
 ```html
 <html>
-  <!-- ... -->
-  <body>
+  <head>
     <script>dataLayer = [{"pageType":"productDetail"}];</script>
     <script>/* Google Tag Manager's script */</script>
     <!-- ... -->
-  </body>
+  </head>
+  <!-- ... -->
 </html>
 ```
 
@@ -184,12 +187,12 @@ After a form submit, the following dataLayer will be parsed on the contact page:
 
 ```html
 <html>
-  <!-- ... -->
-  <body>
+  <head>
     <script>dataLayer = [{"pageType":"contact","formResponse":"success"}];</script>
     <script>/* Google Tag Manager's script */</script>
     <!-- ... -->
-  </body>
+  </head>
+  <!-- ... -->
 </html>
 ```
 
