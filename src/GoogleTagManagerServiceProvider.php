@@ -23,7 +23,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
         ], 'views');
 
         $this->app['view']->creator(
-            ['googletagmanager::head', 'googletagmanager::body'],
+            ['googletagmanager::head', 'googletagmanager::body', 'googletagmanager::script'],
             'Spatie\GoogleTagManager\ScriptViewCreator'
         );
     }
