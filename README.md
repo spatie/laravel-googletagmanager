@@ -89,6 +89,24 @@ return [
      * Enable or disable script rendering. Useful for local development.
      */
     'enabled' => true,
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Google Tags Environments
+    |--------------------------------------------------------------------------
+    |
+    | If you want to use environments in Google Tag Manager you have to enable the
+    | use of environments by defining environmentsEnabled as true and define the
+    | the gtmAuth and gtmPreview keys.
+    |
+    */
+    'environmentsEnabled' => false,
+
+    // The gtm_auth parameter of the Google Tag Manager environment to use
+    'gtmAuth' => '',
+
+    // The gtm_preview parameter of the Google Tag Manager environment to use
+    'gtmPreview' => '',
 
     /*
      * If you want to use some macro's you 'll probably store them
@@ -113,6 +131,20 @@ return [
 ];
 ```
 
+If you want to use environments within Google Tag Manager you have to enable environmentsEnabled and configure the
+gtmAuth and gtmPreview keys, for example:
+
+```php
+return [
+    'id' => 'GTM-XXXXXX',
+    'enabled' => env('APP_ENV') === 'production',
+    'environmentsEnabled' => true,
+    'gtmAuth' => 'XXXXXXXXXXXXXXXXXXXXXX',
+    'gtmPreview' => 'env-X',
+    'macroPath => app_path('Services/GoogleTagManager/Macros.php'),
+];
+``` 
+ 
 ## Usage
 
 ### Basic Example
@@ -208,6 +240,10 @@ $enabled = GoogleTagManager::isEnabled(); // true|false
 // Enable and disable script rendering
 GoogleTagManager::enable();
 GoogleTagManager::disable();
+
+// Enable and disable the use of Environments parameters
+GoogleTagManager::enableEnvironments();
+GoogleTagManager::disableEnvironments();
 
 // Add data to the data layer (automatically renders right before the tag manager script). Setting new values merges them with the previous ones. Set also supports dot notation.
 GoogleTagManager::set(['foo' => 'bar']);

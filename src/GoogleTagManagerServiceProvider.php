@@ -41,6 +41,13 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
             $googleTagManager->disable();
         }
 
+        if (config('googletagmanager.environmentsEnabled') === true) {
+            $googleTagManager->enableEnvironmentWithParameters(
+                config('googletagmanager.gtmAuth'),
+                config('googletagmanager.gtmPreview')
+            );
+        }
+
         $this->app->instance('Spatie\GoogleTagManager\GoogleTagManager', $googleTagManager);
         $this->app->alias('Spatie\GoogleTagManager\GoogleTagManager', 'googletagmanager');
 

@@ -3,6 +3,7 @@
 namespace Spatie\GoogleTagManager;
 
 use Illuminate\Support\Traits\Macroable;
+use Spatie\GoogleTagManager\Exceptions\EnvironmentParametersNotSetException;
 
 class GoogleTagManager
 {
@@ -17,6 +18,21 @@ class GoogleTagManager
      * @var bool
      */
     protected $enabled;
+
+    /**
+     * @var bool true if the environments are used in Google Tag Manager
+     */
+    protected $environmentsEnabled;
+
+    /**
+     * @var string the value to use as gtm_auth parameter (for environments in Google Tag Manager)
+     */
+    protected $gtmAuth;
+
+    /**
+     * @var string the value to use as gtm_preview parameter (for environments in Google Tag Manager)
+     */
+    protected $gtmPreview;
 
     /**
      * @var \Spatie\GoogleTagManager\DataLayer
@@ -44,6 +60,19 @@ class GoogleTagManager
         $this->pushDataLayer = new \Illuminate\Support\Collection();
 
         $this->enabled = true;
+        $this->environmentsEnabled = false;
+    }
+
+    /**
+     * Enable the use of environments for Google Tag Manager.
+     * @param string $gtmAuth the value to use as gtm_auth
+     * @param string $gtmPreview the value to use as gtm_preview
+     */
+    public function enableEnvironmentWithParameters($gtmAuth, $gtmPreview)
+    {
+        $this->enableEnvironments();
+        $this->gtmAuth = $gtmAuth;
+        $this->gtmPreview = $gtmPreview;
     }
 
     /**
@@ -67,6 +96,38 @@ class GoogleTagManager
     }
 
     /**
+     * Check whether environments are enabled.
+     *
+     * @return bool
+     */
+    public function isEnvironmentsEnabled()
+    {
+        return $this->environmentsEnabled;
+    }
+
+    /**
+     * @return string the environments parameters to use or an empty string if environments are not enabled.
+     *
+     * @throws EnvironmentParametersNotSetException if the gtmAuth and gtmPreview are not set and environments are used.
+     */
+    public function getEnvironmentParameters()
+    {
+        $environmentParameters = '';
+        // Verify GTM is enabled as well, to prevent generating exception while disabled completely.
+        if ($this->isEnabled() && $this->isEnvironmentsEnabled()) {
+            $gtmAuth = $this->getGtmAuth();
+            $gtmPreview = $this->getGtmPreview();
+            if (empty($gtmAuth) || empty($gtmPreview)) {
+                throw new EnvironmentParametersNotSetException(
+                    'Both parameters (gtmAuth and gtmPreview) are required.'
+                );
+            }
+            $environmentParameters = '&gtm_auth=' . $gtmAuth . '&gtm_preview=' . $gtmPreview;
+        }
+        return $environmentParameters;
+    }
+
+    /**
      * Enable Google Tag Manager scripts rendering.
      */
     public function enable()
@@ -80,6 +141,42 @@ class GoogleTagManager
     public function disable()
     {
         $this->enabled = false;
+    }
+
+    /**
+     * Enable Google Tag Manager environments parameters rendering.
+     */
+    public function enableEnvironments()
+    {
+        $this->environmentsEnabled = true;
+    }
+
+    /**
+     * Disable Google Tag Manager environments parameters rendering.
+     */
+    public function disableEnvironments()
+    {
+        $this->environmentsEnabled = false;
+    }
+
+    /**
+     * Return the value to use for the gtm_auth parameter.
+     *
+     * @return string
+     */
+    public function getGtmAuth()
+    {
+        return $this->gtmAuth;
+    }
+
+    /**
+     * Return the value to use for the gtm_preview parameter.
+     *
+     * @return string
+     */
+    public function getGtmPreview()
+    {
+        return $this->gtmPreview;
     }
 
     /**

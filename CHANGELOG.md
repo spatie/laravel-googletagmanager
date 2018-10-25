@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## Unreleased
+- Add support for Environments (fixes https://github.com/spatie/laravel-googletagmanager/issues/2)
+
 ## 2.5.1 - 2018-10-15
 - Fixed view creator
 
