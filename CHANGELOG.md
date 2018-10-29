@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.6.0 + 2018-10-30
+- Added: `setId`
+
 ## 2.5.1 - 2018-10-15
 - Fixed view creator
 
