@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.6.1 - 2019-08-21
+Get default values from .env file
+
 ## 2.6.0 + 2018-10-30
 - Added: `setId`
 
