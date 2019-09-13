@@ -2,6 +2,8 @@
 
 namespace Spatie\GoogleTagManager;
 
+use Illuminate\Support\Arr;
+
 class DataLayer
 {
     /**
@@ -25,13 +27,13 @@ class DataLayer
     {
         if (is_array($key)) {
             foreach ($key as $innerKey => $innerValue) {
-                array_set($this->data, $innerKey, $innerValue);
+                Arr::set($this->data, $innerKey, $innerValue);
             }
 
             return;
         }
 
-        array_set($this->data, $key, $value);
+        Arr::set($this->data, $key, $value);
     }
 
     /**
