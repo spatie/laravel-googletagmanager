@@ -236,16 +236,18 @@ GoogleTagManager also has a `dump()` function to convert arrays to json objects 
 ```
 
 ```js
-$('[data-gtm-click]').on('click', function() {
+$('[data-gtm-click]').on('click', function(event) {
+    event.preventDefault();
+    var self = this;
     dataLayer.push({
         'event': 'productClick',
         'ecommerce': {
             'click': {
-                'products': $(this).data('gtm-product')
+                'products': $(self).data('gtm-product')
             }
-        }
+        },
         'eventCallback': function() {
-            document.location = $(this).attr('href');
+            document.location = $(self).attr('href');
         }
     });
 });
