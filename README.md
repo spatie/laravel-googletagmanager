@@ -100,7 +100,7 @@ return [
     /*
      * If you want to use some macro's you 'll probably store them
      * in a dedicated file. You can optionally define the path
-     * to that file here and we will load it for you.
+     * to that file here, and we will load it for you.
      */
     'macroPath' => '',
 
@@ -232,7 +232,7 @@ GoogleTagManager::set('baz.ho', 'doorrrrr');
 GoogleTagManager also has a `dump()` function to convert arrays to json objects on the fly. This is useful for sending data to the view that you want to use at a later time.
 
 ```
-<a data-gtm-product='{!! GoogleTagManager::dump($article->toArray()) !!}' data-gtm-click>Product</a>
+<a data-gtm-product='{!! GoogleTagManager::dump($product->toArray()) !!}' data-gtm-click>Product</a>
 ```
 
 ```js
