@@ -1,9 +1,11 @@
 @if($enabled)
 <script>
 window.dataLayer = window.dataLayer || [];
-dataLayer = [{!! $dataLayer->toJson() !!}];
+@unless(empty($dataLayer->toArray()))
+window.dataLayer.push({!! $dataLayer->toJson() !!});
+@endunless
 @foreach($pushData as $item)
-dataLayer.push({!! $item->toJson() !!});
+window.dataLayer.push({!! $item->toJson() !!});
 @endforeach
 </script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

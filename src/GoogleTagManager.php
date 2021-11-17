@@ -2,6 +2,7 @@
 
 namespace Spatie\GoogleTagManager;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 
 class GoogleTagManager
@@ -41,7 +42,7 @@ class GoogleTagManager
         $this->id = $id;
         $this->dataLayer = new DataLayer();
         $this->flashDataLayer = new DataLayer();
-        $this->pushDataLayer = new \Illuminate\Support\Collection();
+        $this->pushDataLayer = new Collection();
 
         $this->enabled = true;
     }
@@ -59,7 +60,7 @@ class GoogleTagManager
     public function setId($id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -160,7 +161,7 @@ class GoogleTagManager
     public function clear()
     {
         $this->dataLayer = new DataLayer();
-        $this->pushDataLayer = new \Illuminate\Support\Collection();
+        $this->pushDataLayer = new Collection();
     }
 
     /**
