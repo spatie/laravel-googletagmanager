@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.6.4 - 2021-12-11
+
+## What's Changed
+
+- Make binding a closure by @bilfeldt in https://github.com/spatie/laravel-googletagmanager/pull/42
+
+## New Contributors
+
+- @bilfeldt made their first contribution in https://github.com/spatie/laravel-googletagmanager/pull/42
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.6.3...2.6.4
+
 ## 2.6.3 - 2021-11-17
 
 ## What's Changed
