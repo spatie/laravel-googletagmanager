@@ -35,7 +35,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../resources/config/config.php', 'googletagmanager');
 
-        $this->app->instance('Spatie\GoogleTagManager\GoogleTagManager', function($app) {
+        $this->app->bind('Spatie\GoogleTagManager\GoogleTagManager', function($app) {
             $googleTagManager = new GoogleTagManager(config('googletagmanager.id'));
             
             if (config('googletagmanager.enabled') === false) {
