@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.6.5 - 2021-12-13
+
+## What's Changed
+
+- Change instance to bind in service provider by @fransjooste1 in https://github.com/spatie/laravel-googletagmanager/pull/43
+
+## New Contributors
+
+- @fransjooste1 made their first contribution in https://github.com/spatie/laravel-googletagmanager/pull/43
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.6.4...2.6.5
+
 ## 2.6.4 - 2021-12-11
 
 ## What's Changed
