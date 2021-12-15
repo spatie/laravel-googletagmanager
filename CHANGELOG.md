@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.6.6 - 2021-12-15
+
+## What's Changed
+
+- Fixed dataLayer variables set through facade not being outputted by @FrittenKeeZ in https://github.com/spatie/laravel-googletagmanager/pull/45
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.6.5...2.6.6
+
 ## 2.6.5 - 2021-12-13
 
 ## What's Changed
