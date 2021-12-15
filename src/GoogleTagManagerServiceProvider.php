@@ -35,7 +35,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../resources/config/config.php', 'googletagmanager');
 
-        $this->app->bind('Spatie\GoogleTagManager\GoogleTagManager', function($app) {
+        $this->app->singleton(GoogleTagManager::class, function($app) {
             $googleTagManager = new GoogleTagManager(config('googletagmanager.id'));
             
             if (config('googletagmanager.enabled') === false) {
@@ -44,7 +44,7 @@ class GoogleTagManagerServiceProvider extends ServiceProvider
             
             return $googleTagManager;
         });
-        $this->app->alias('Spatie\GoogleTagManager\GoogleTagManager', 'googletagmanager');
+        $this->app->alias(GoogleTagManager::class, 'googletagmanager');
 
         if (is_file(config('googletagmanager.macroPath'))) {
             include config('googletagmanager.macroPath');
