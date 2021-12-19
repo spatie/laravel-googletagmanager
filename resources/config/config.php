@@ -34,5 +34,5 @@ return [
     /*
      * The key used in the data layer for storing the authenticated model id.
      */
-    'data_layer_user_key' => env('GOOGLE_TAG_MANAGER_DATA_LAYER_USER_KEY', 'uid'), 
+    'data_layer_user_key' => env('GOOGLE_TAG_MANAGER_DATA_LAYER_USER_KEY', 'user_id'), 
 ];
