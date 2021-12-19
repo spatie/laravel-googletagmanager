@@ -227,6 +227,10 @@ GoogleTagManager::set('baz.ho', 'doorrrrr');
 // ]
 ```
 
+### User information via middleware
+
+There is an optional `GoogleTagManagerUserIdMiddleware` that can be used to add the users id to the Google Tag Manager Data Layer. This is usefull if need to pass it on to [Google Analytics](https://support.google.com/tagmanager/answer/4565987?hl=en) or other 3rd party applications.
+
 ### Dump
 
 GoogleTagManager also has a `dump()` function to convert arrays to json objects on the fly. This is useful for sending data to the view that you want to use at a later time.

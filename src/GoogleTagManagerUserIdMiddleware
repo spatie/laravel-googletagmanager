@@ -1,0 +1,55 @@
+<?php
+
+namespace Spatie\GoogleTagManager;
+
+use Closure;
+use Illuminate\Config\Repository as Config;
+use Illuminate\Session\Store as Session;
+use Spatie\GoogleTagManager\GoogleTagManager;
+
+class GoogleTagManagerUserIdMiddleware
+{
+    /**
+     * @var \Spatie\GoogleTagManager\GoogleTagManager
+     */
+    protected $googleTagManager;
+
+    /**
+     * @var string
+     */
+    protected $userKey;
+
+    /**
+     * @var string
+     */
+    protected $dataLayerKey;
+
+    /**
+     * @param \Spatie\GoogleTagManager\GoogleTagManager $googleTagManager
+     * @param \Illuminate\Session\Store $session
+     */
+    public function __construct(GoogleTagManager $googleTagManager, Session $session, Config $config)
+    {
+        $this->googleTagManager = $googleTagManager;
+        $this->session = $session;
+
+        $this->userKey = $config->get('googletagmanager.user_model_key');
+        $this->dataLayerKey = $config->get('googletagmanager.data_layer_user_key');
+    }
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        if ($request->user()) {
+            $this->googleTagManager->set($this->dataLayerKey, $request->user()->{$this->userKey});
+        }
+
+        return $next($request);
+    }
+}
