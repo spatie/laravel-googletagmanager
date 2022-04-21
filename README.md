@@ -105,8 +105,7 @@ return [
      * in a dedicated file. You can optionally define the path
      * to that file here, and we will load it for you.
      */
-    '
-    ' => '',
+    'macroPath' => '',
 
 ];
 
