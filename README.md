@@ -119,7 +119,7 @@ Example setup:
 return [
     'id' => 'GTM-XXXXXX',
     'enabled' => env('APP_ENV') === 'production',
-    'macroPath => app_path('Services/GoogleTagManager/Macros.php'),
+    'macroPath' => app_path('Services/GoogleTagManager/Macros.php'),
 ];
 ```
 
