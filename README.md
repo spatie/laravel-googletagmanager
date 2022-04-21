@@ -105,7 +105,8 @@ return [
      * in a dedicated file. You can optionally define the path
      * to that file here, and we will load it for you.
      */
-    'macroPath' => '',
+    '
+    ' => '',
 
 ];
 
@@ -119,7 +120,7 @@ Example setup:
 return [
     'id' => 'GTM-XXXXXX',
     'enabled' => env('APP_ENV') === 'production',
-    'macroPath => app_path('Services/GoogleTagManager/Macros.php'),
+    'macroPath' => app_path('Services/GoogleTagManager/Macros.php'),
 ];
 ```
 
