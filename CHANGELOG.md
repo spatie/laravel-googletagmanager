@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.6.7 - 2023-12-11
+
+### What's Changed
+
+* Fix macroPath comma typo by @viktorasbuivydas in https://github.com/spatie/laravel-googletagmanager/pull/47
+* 👌 IMPROVE: delay push after load event by @mickaelperrin in https://github.com/spatie/laravel-googletagmanager/pull/50
+
+### New Contributors
+
+* @viktorasbuivydas made their first contribution in https://github.com/spatie/laravel-googletagmanager/pull/47
+* @mickaelperrin made their first contribution in https://github.com/spatie/laravel-googletagmanager/pull/50
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.6.6...2.6.7
+
 ## 2.6.6 - 2021-12-15
 
 ## What's Changed
