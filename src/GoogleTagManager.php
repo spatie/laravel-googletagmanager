@@ -20,6 +20,11 @@ class GoogleTagManager
     protected $enabled;
 
     /**
+     * @var string
+     */
+    protected $gtmScriptDomain;
+
+    /**
      * @var \Spatie\GoogleTagManager\DataLayer
      */
     protected $dataLayer;
@@ -36,10 +41,12 @@ class GoogleTagManager
 
     /**
      * @param string $id
+     * @param string $gtmScriptDomain
      */
-    public function __construct($id)
+    public function __construct($id, $gtmScriptDomain)
     {
         $this->id = $id;
+        $this->gtmScriptDomain = $gtmScriptDomain;
         $this->dataLayer = new DataLayer();
         $this->flashDataLayer = new DataLayer();
         $this->pushDataLayer = new Collection();
@@ -62,6 +69,16 @@ class GoogleTagManager
         $this->id = $id;
 
         return $this;
+    }
+
+    /**
+     * Return the Google Tag Manager script domain.
+     *
+     * @return string
+     */
+    public function gtmScriptDomain()
+    {
+        return $this->gtmScriptDomain;
     }
 
     /**
