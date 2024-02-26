@@ -10,9 +10,6 @@
 @if($enabled)
     <script>
         function gtmPush() {
-            @unless(empty($dataLayer->toArray()))
-            window.dataLayer.push({!! $dataLayer->toJson() !!});
-            @endunless
             @foreach($pushData as $item)
             window.dataLayer.push({!! $item->toJson() !!});
             @endforeach
@@ -28,4 +25,3 @@
         ></iframe>
     </noscript>
 @endif
-
