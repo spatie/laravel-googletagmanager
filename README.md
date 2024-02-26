@@ -23,7 +23,7 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 
 Google Tag Manager allows you manage tracking and marketing optimization with AdWords, Google Analytics, et al. without editing your site code. One way of using Google Tag Manager is by sending data through a `dataLayer` variable in javascript after the page load and on custom events. This package makes managing the data layer easy.
 
-For concrete examples of what you want to send through the data layer, check out Google Tag Manager's [Developer Guide](https://developers.google.com/tag-manager/devguide).
+For concrete examples of what you want to send throught the data layer, check out Google Tag Manager's [Developer Guide](https://developers.google.com/tag-manager/devguide).
 
 You'll also need a Google Tag Manager ID, which you can retrieve by [signing up](https://tagmanager.google.com/#/home) and creating an account for your website.
 
@@ -103,18 +103,7 @@ return [
      * to that file here, and we will load it for you.
      */
     'macroPath' => '',
-    
-     /*
-     * The key under which data is saved to the session with flash.
-     */
-    'sessionKey' => '_googleTagManager',
 
-     /*
-     * Configures the Google Tag Manager script domain.
-     * Modify this value only if you're using "Google Tag Manage: Web Container" client
-     * to serve gtm.js for your web container. Else, keep the default value.
-     */
-    'domain' => 'www.googletagmanager.com',
 ];
 
 ```
@@ -128,9 +117,6 @@ return [
     'id' => 'GTM-XXXXXX',
     'enabled' => env('APP_ENV') === 'production',
     'macroPath' => app_path('Services/GoogleTagManager/Macros.php'),
-    'sessionKey' => '_googleTagManager',
-    // Base domain used in your GTM server container
-    'domain' => 'gtm.yourdomain.com',
 ];
 ```
 
