@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.7.0 - 2024-02-26
+
+### What's Changed
+
+* Allow setting custom domains for serving gtm.js by @mithredate in https://github.com/spatie/laravel-googletagmanager/pull/51
+
+### New Contributors
+
+* @mithredate made their first contribution in https://github.com/spatie/laravel-googletagmanager/pull/51
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.6.7...2.7.0
+
 ## 2.6.7 - 2023-12-11
 
 ### What's Changed
