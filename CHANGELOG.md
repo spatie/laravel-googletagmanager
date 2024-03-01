@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.7.1 - 2024-03-01
+
+### What's Changed
+
+* Set data-layer values before initialization by @mithredate in https://github.com/spatie/laravel-googletagmanager/pull/52
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.7.0...2.7.1
+
 ## 2.7.0 - 2024-02-26
 
 ### What's Changed
