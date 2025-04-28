@@ -217,6 +217,43 @@ After a form submit, the following dataLayer will be parsed on the contact page:
 </html>
 ```
 
+##### Flashing push data
+
+Sometimes you might want to flash data with the same keys that would otherwise overwrite previous values, using push flash can allow this.
+
+```php
+// OAuthController.php
+
+public function callback()
+{
+    // Authenticate user
+    if ($user->wasRecentlyCreated) {
+        GoogleTagManager::flashPush(['event' => 'sign_up', 'method' => 'OAuth');
+    }
+    GoogleTagManager::flashPush(['event' => 'login', 'method' => 'OAuth');
+
+    return redirect()->intended();
+}
+```
+
+After the redirect, the following pushes will be added to the page:
+
+```html
+<html>
+  <!-- ... -->
+  <body>
+    <script>
+      function gtmPush() {
+        window.dataLayer.push({"event":"sign_up","method":"OAuth"});
+        window.dataLayer.push({"event":"login","method":"OAuth"});
+      }
+      addEventListener("load", gtmPush);
+    </script>
+  <!-- ... -->
+  </body>
+</html>
+```
+
 ### Other Simple Methods
 
 ```php
