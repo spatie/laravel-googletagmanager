@@ -45,13 +45,23 @@ class GoogleTagManagerMiddleware
      */
     public function handle($request, Closure $next)
     {
+        $flashPushKey = $this->sessionKey.':push';
+
         if ($this->session->has($this->sessionKey)) {
             $this->googleTagManager->set($this->session->get($this->sessionKey));
+        }
+        if ($this->session->has($flashPushKey)) {
+            foreach ($this->session->get($flashPushKey) as $pushData) {
+                $this->googleTagManager->push($pushData);
+            }
         }
 
         $response = $next($request);
 
         $this->session->flash($this->sessionKey, $this->googleTagManager->getFlashData());
+        $this->session->flash($flashPushKey, $this->googleTagManager->getFlashPushData()->map(function ($dataLayer) {
+            return $dataLayer->toArray();
+        })->toArray());
 
         return $response;
     }

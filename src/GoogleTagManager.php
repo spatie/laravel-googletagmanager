@@ -40,6 +40,11 @@ class GoogleTagManager
     protected $pushDataLayer;
 
     /**
+     * @var \Illuminate\Support\Collection
+     */
+    protected $flashPushDataLayer;
+
+    /**
      * @param string $id
      * @param string $gtmScriptDomain
      */
@@ -50,6 +55,7 @@ class GoogleTagManager
         $this->dataLayer = new DataLayer();
         $this->flashDataLayer = new DataLayer();
         $this->pushDataLayer = new Collection();
+        $this->flashPushDataLayer = new Collection();
 
         $this->enabled = true;
     }
@@ -170,6 +176,29 @@ class GoogleTagManager
     public function getPushData()
     {
         return $this->pushDataLayer;
+    }
+
+    /**
+     * Add data to be pushed to the data layer for the next request.
+     *
+     * @param array|string $key
+     * @param mixed        $value
+     */
+    public function flashPush($key, $value = null)
+    {
+        $pushItem = new DataLayer();
+        $pushItem->set($key, $value);
+        $this->flashPushDataLayer->push($pushItem);
+    }
+
+    /**
+     * Retrieve the push data for the next request.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getFlashPushData()
+    {
+        return $this->flashPushDataLayer;
     }
 
     /**
