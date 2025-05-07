@@ -22,4 +22,4 @@ jobs:
            composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
 
       -  name: Execute tests
-         run: vendor/bin/phpunit
+         run: vendor/bin/phpunit --no-coverage
