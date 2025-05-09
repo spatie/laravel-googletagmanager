@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-googletagmanager` will be documented in this file
 
+## 2.8.0 - 2025-05-09
+
+### What's Changed
+
+* Flashing push data by @jmsfwk in https://github.com/spatie/laravel-googletagmanager/pull/55
+
+### New Contributors
+
+* @jmsfwk made their first contribution in https://github.com/spatie/laravel-googletagmanager/pull/55
+
+**Full Changelog**: https://github.com/spatie/laravel-googletagmanager/compare/2.7.1...2.8.0
+
 ## 2.7.1 - 2024-03-01
 
 ### What's Changed
