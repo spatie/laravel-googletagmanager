@@ -1,0 +1,40 @@
+name: run-tests
+
+on: [ push, pull_request ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        php: [8.4, 8.3, 8.2]
+        laravel: [12.*, 11.*, 10.*]
+
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+
+    steps:
+      -  name: Checkout code
+         uses: actions/checkout@v2
+
+      -  name: Setup PHP
+         uses: shivammathur/setup-php@v2
+         with:
+           php-version: ${{ matrix.php }}
+           extensions: fileinfo
+           coverage: none
+
+      -  name: Setup problem matchers
+         run: |
+           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      -  name: Install dependencies
+         run: |
+           composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+           composer update --prefer-stable --prefer-dist --no-interaction --no-suggest
+
+      -  name: Execute tests
+         run: vendor/bin/phpunit --no-coverage

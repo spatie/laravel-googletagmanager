@@ -18,11 +18,23 @@
         }
     ],
     "require": {
-        "php" : ">=5.4.0"
+        "php": ">=5.5",
+        "illuminate/config": "5.1 - 12",
+        "illuminate/http": "5.1 - 12",
+        "illuminate/session": "5.1 - 12",
+        "illuminate/view": "5.1 - 12"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "psr-4": {
             "Spatie\\GoogleTagManager\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spatie\\GoogleTagManager\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -37,5 +49,9 @@
                 "GoogleTagManager": "Spatie\\GoogleTagManager\\GoogleTagManagerFacade"
             }
         }
+    },
+    "config": {
+        "lock": false,
+        "sort-packages": true
     }
 }
