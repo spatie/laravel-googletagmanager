@@ -5,7 +5,7 @@ namespace Spatie\GoogleTagManager;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Spatie\GoogleTagManager\GoogleTagManager
+ * @see GoogleTagManager
  */
 class GoogleTagManagerFacade extends Facade
 {
