@@ -143,7 +143,7 @@ class GoogleTagManager
     /**
      * Retrieve the data layer's data for the next request.
      *
-     * @return Collection<int, \Spatie\GoogleTagManager\DataLayer>
+     * @return Collection<int, DataLayer>
      */
     public function getPushData(): Collection
     {
